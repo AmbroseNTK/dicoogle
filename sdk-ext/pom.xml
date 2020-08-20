@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>dicoogle-sdk-ext</artifactId>
@@ -7,12 +6,12 @@
 	<name>dicoogle-sdk-ext</name>
 	<url>http://www.dicoogle.com</url>
 
-        <parent>
-            <groupId>pt.ua.ieeta</groupId>
-            <artifactId>dicoogle-all</artifactId>
-            <version>3.0.0-SNAPSHOT</version>
-            <relativePath>../pom.xml</relativePath>
-        </parent>
+	<parent>
+		<groupId>pt.ua.ieeta</groupId>
+		<artifactId>dicoogle-all</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
 
 
 	<properties>
@@ -34,43 +33,42 @@
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-shade-plugin</artifactId>
-                            <version>2.3</version>
-                            <executions>
-                                <execution>
-                                    <phase>package</phase>
-                                    <goals>
-                                        <goal>shade</goal>
-                                    </goals>
-                                    <configuration>
-                                            <artifactSet>
-                                                <excludes>
-                                                    <exclude>org.dicoogle.sdk:dicoogle-sdk</exclude>
-                                                </excludes>
-                                            </artifactSet>
-                                            <filters>
-                                                <filter>
-                                                    <artifact>*:*</artifact>
-                                                    <excludes>
-                                                        <exclude>**/*.SF</exclude>
-                                                        <exclude>**/*.DSA</exclude>
-                                                        <exclude>**/*.RSA</exclude>
-                                                    </excludes>
-                                                </filter>
-                                            </filters>
-                                    </configuration>
-                                </execution>
-                            </executions>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<artifactSet>
+								<excludes>
+									<exclude>org.dicoogle.sdk:dicoogle-sdk</exclude>
+								</excludes>
+							</artifactSet>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>**/*.SF</exclude>
+										<exclude>**/*.DSA</exclude>
+										<exclude>**/*.RSA</exclude>
+									</excludes>
+								</filter>
+							</filters>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-                                <version>2.3</version>
+				<version>2.3</version>
 				<configuration>
-					<systemProperties>
-					</systemProperties>
+					<systemProperties></systemProperties>
 				</configuration>
 			</plugin>
 
@@ -128,36 +126,20 @@
 		<dependency>
 			<groupId>pt.ua.ieeta</groupId>
 			<artifactId>dicoogle-sdk</artifactId>
-                        <version>${project.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-                
-                <dependency>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                    <version>${slf4j.version}</version>
-                </dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
 
 	</dependencies>
-    <distributionManagement>
-
-        <!-- Versioned releases are published to the releases repository -->
-        <repository>
-            <id>mi</id>
-            <url>http://bioinformatics.ua.pt/maven/content/repositories/mi</url>
-        </repository>
-
-
-        <!-- Snapshot releases are published to the snapshots repository -->
-        <snapshotRepository>
-            <id>mi</id>
-            <url>http://bioinformatics.ua.pt/maven/content/repositories/mi-snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
 
 </project>

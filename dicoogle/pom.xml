@@ -1,12 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dicoogle</artifactId>
     <packaging>jar</packaging>
     <name>dicoogle</name>
     <url>http://www.dicoogle.com</url>
-    
+
     <parent>
         <groupId>pt.ua.ieeta</groupId>
         <artifactId>dicoogle-all</artifactId>
@@ -93,14 +92,14 @@
                     <exclude>META-INF/*.RSA</exclude>
                 </excludes>
             </resource>
-           <resource>
-               <directory>src/main/resources</directory>
-               <filtering>true</filtering>
-               <includes>
-                   <include>version.txt</include>
-               </includes>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>version.txt</include>
+                </includes>
             </resource>
-         </resources>
+        </resources>
 
         <plugins>
             <plugin>
@@ -115,12 +114,11 @@
                         </goals>
                         <configuration>
                             <transformers>
-                                <transformer
-                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>pt.ua.dicoogle.Main</mainClass>
                                     <manifestEntries>
-					    <Specification-Version>${project.version}</Specification-Version>
-					    <Implementation-Version>${project.version}</Implementation-Version>
+                                        <Specification-Version>${project.version}</Specification-Version>
+                                        <Implementation-Version>${project.version}</Implementation-Version>
                                         <Extension-Name>com.sun.media.imageio</Extension-Name>
                                         <Implementation-Vendor>BMD software/UA.PT Bioinformatics</Implementation-Vendor>
                                         <Specification-Vendor>BMD software/UA.PT Bioinformatics</Specification-Vendor>
@@ -245,7 +243,7 @@
                     <workingDirectory>src/main/resources/webapp</workingDirectory>
                 </configuration>
             </plugin>
-          
+
         </plugins>
     </build>
 
@@ -319,9 +317,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.dicoogle.aclmanager</groupId>
+            <groupId>com.bmd.archive</groupId>
             <artifactId>aclmanager</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.2.0</version>
         </dependency>
 
         <dependency>
@@ -370,7 +368,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>19.0</version>
+            <version>29.0-jre</version>
         </dependency>
 
         <dependency>
